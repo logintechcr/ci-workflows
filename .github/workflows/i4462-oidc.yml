@@ -4,15 +4,14 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  j_plain:
+  j_none:
     runs-on: ubuntu-latest
     timeout-minutes: 6
-    environment: plain
     steps:
       - name: oidc
         env:
           ROLES: '["arn:aws:iam::432772479668:role/github-code-review-bedrock-role"]'
-          ENVNAME: plain
+          ENVNAME: none
         shell: python
         run: |
           import os,sys,json,base64,urllib.request,urllib.parse,re,traceback
